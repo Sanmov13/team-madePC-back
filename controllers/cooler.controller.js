@@ -11,7 +11,7 @@ module.exports.coolerController = ({
             const data = await Cooler.find()
             res.json(data)
         } catch (e) {
-            res.status(404).json("Ошибка при добавлении кулера")
+            return res.status(404).json("Ошибка при добавлении кулера")
         }
     },
 
@@ -20,7 +20,7 @@ module.exports.coolerController = ({
             const data = await Cooler.findByIdAndDelete(req.params.id)
             res.json(data)
         } catch (e) {
-            res.status(404).json('Ошибка при удалении Кулера')
+            return res.status(404).json('Ошибка при удалении Кулера')
         }
     }
 })

@@ -16,18 +16,19 @@ app.use(require("./routes/math.route"));
 app.use(require('./routes/user.route'));
 app.use(require('./routes/processor.route'));
 app.use(require('./routes/cooler.route'));
+app.use(require('./routes/comp.route'));
 
 const start = async () => {
-  try {
-    await mongoose.connect(process.env.MONGO_SERVER);
-    console.log("Подключились к базе");
-  } catch (error) {
-    console.log(error);
-  }
+    try {
+        await mongoose.connect(process.env.MONGO_SERVER);
+        console.log("Подключились к базе");
+    } catch (error) {
+        console.log(error);
+    }
 };
 
 app.listen(process.env.PORT, () => {
-  console.log("Подключились к серверу");
+    console.log("Подключились к серверу");
 });
 
 start();
