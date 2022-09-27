@@ -14,6 +14,7 @@ app.use('/public', express.static(path.join(__dirname, 'public')));
 
 app.use(require('./routes/user.route'));
 app.use(require('./routes/processor.route'));
+app.use(require('./routes/cooler.route'));
 
 const start = async () => {
     try {
