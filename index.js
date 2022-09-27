@@ -13,6 +13,10 @@ app.use(express.static(path.resolve(__dirname, "public")));
 app.use("/public", express.static(path.join(__dirname, "public")));
 
 app.use(require("./routes/math.route"));
+app.use(require('./routes/user.route'));
+app.use(require('./routes/processor.route'));
+app.use(require('./routes/cooler.route'));
+
 const start = async () => {
   try {
     await mongoose.connect(process.env.MONGO_SERVER);
