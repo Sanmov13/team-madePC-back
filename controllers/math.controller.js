@@ -11,7 +11,6 @@ module.exports.math = {
     const data = await Math.create(
       ({
         name,
-        type,
         socket,
         image,
         ram,
@@ -34,7 +33,6 @@ module.exports.math = {
       req.params.id,
       ({
         name,
-        type,
         socket,
         image,
         ram,
