@@ -32,6 +32,10 @@ const compSchema = mongoose.Schema({
         type: mongoose.SchemaTypes.ObjectId,
         ref: "Cooler",
     },
+    math: {
+        type: mongoose.SchemaTypes.ObjectId,
+        ref: "Math"
+    }
 });
 
 const Comp = mongoose.model("Comp", compSchema);
