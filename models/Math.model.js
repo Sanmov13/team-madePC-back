@@ -7,28 +7,29 @@ const mathSchema = mongoose.Schema({
   image: String,
   ram: {
     type: mongoose.SchemaTypes.ObjectId,
-    ref: "ram",
+    ref: "RAM",
   },
   currentRam: Number,
+  maxRam: Number,
   videocard: {
     type: mongoose.SchemaTypes.ObjectId,
-    ref: "videocard",
+    ref: "VideoCard",
   },
   hardCard: {
     type: mongoose.SchemaTypes.ObjectId,
-    ref: "hardcard",
+    ref: "HDD",
   },
   currentHardCard: Number,
   ssd: {
     type: mongoose.SchemaTypes.ObjectId,
-    ref: "ssd",
+    ref: "Ssd",
   },
   currentSsd: Number,
   processor: {
     type: mongoose.SchemaTypes.ObjectId,
-    ref: "processor",
+    ref: "Processor",
   },
-  price: String,
+  price: Number,
 });
 
 const Math = mongoose.model("Math", mathSchema);
