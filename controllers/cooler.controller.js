@@ -2,7 +2,7 @@ const Cooler = require('../models/Cooler.model');
 
 module.exports.coolerController = ({
     addCooler: async (req, res) => {
-        const data = await Cooler.create({ power, image, price, title } = req.body);
+        const data = await Cooler.create({ power, image, price, name } = req.body);
         res.json(data);
     },
 
