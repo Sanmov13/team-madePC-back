@@ -6,15 +6,15 @@ const compSchema = mongoose.Schema({
     image: String,
     ram: {
         type: mongoose.SchemaTypes.ObjectId,
-        ref: "Ram",
+        ref: "RAM",
     },
     videocard: {
         type: mongoose.SchemaTypes.ObjectId,
-        ref: "Videocard",
+        ref: "VideoCard",
     },
     hardCard: {
         type: mongoose.SchemaTypes.ObjectId,
-        ref: "Hardcard",
+        ref: "HDD",
     },
     ssd: {
         type: mongoose.SchemaTypes.ObjectId,
@@ -35,6 +35,10 @@ const compSchema = mongoose.Schema({
     math: {
         type: mongoose.SchemaTypes.ObjectId,
         ref: "Math"
+    },
+    powerunits: {
+        type: mongoose.SchemaTypes.ObjectId,
+        ref: "PowerUnit"
     }
 });
 
