@@ -17,6 +17,7 @@ app.use(require('./routes/user.route'));
 app.use(require('./routes/processor.route'));
 app.use(require('./routes/cooler.route'));
 app.use(require('./routes/comp.route'));
+app.use(require('./routes/corpus.route'));
 
 const start = async () => {
     try {

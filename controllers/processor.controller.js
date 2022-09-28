@@ -9,7 +9,7 @@ module.exports.processorController = ({
                 frequency,
                 image,
                 price,
-                title
+                name
             } = req.body
         )
         res.json(data)
