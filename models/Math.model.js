@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 
 const mathSchema = mongoose.Schema({
   name: String,
+  type: String,
   socket: String,
   image: String,
   ram: {
