@@ -5,6 +5,7 @@ module.exports.processorController = ({
         const data = await Processor.create(
             {
                 core,
+                socket,
                 threads,
                 frequency,
                 image,

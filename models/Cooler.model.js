@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const coolerSchema = mongoose.Schema({
-    power: Number,
+    power: String,
     image: String,
     price: Number,
     name: String
