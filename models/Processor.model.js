@@ -2,8 +2,9 @@ const mongoose = require('mongoose');
 
 const processorSchema = mongoose.Schema({
     core: Number,
+    socket: String,
     threads: Number,
-    frequency: Number,
+    frequency: String,
     image: String,
     price: Number,
     name: String
