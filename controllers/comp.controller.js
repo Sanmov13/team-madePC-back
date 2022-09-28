@@ -3,7 +3,7 @@ const Comp = require('../models/Comp.model');
 module.exports.compController = ({
     addComp: async (req, res) => {
         try {
-            const data = await Comp.create({ name, price, image, ram, videocard, hardcard, ssd, processor, corpus, cooler } = req.body);
+            const data = await Comp.create({ name, price, image, ram, videocard, hardcard, ssd, processor, corpus, cooler, math } = req.body);
             const result = await data.populate('ram videocard hardcard ssd processor corpus cooler')
             res.json(result)
         } catch (e) {
