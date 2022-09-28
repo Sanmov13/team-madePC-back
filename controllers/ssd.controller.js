@@ -1,4 +1,4 @@
-const Ssd = require("../models/Ssd")
+const Ssd = require("../models/Ssd.model")
 
 module.exports.ssdController = ({
     addSsd: async (req,res)=>{
