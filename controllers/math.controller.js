@@ -22,7 +22,6 @@ module.exports.math = {
         ssd,
         currentSsd,
         processor,
-        frame,
       } = req.body)
     );
     const result = await data.populate(
@@ -46,7 +45,6 @@ module.exports.math = {
         ssd,
         currentSsd,
         processor,
-        frame,
       } = req.body)
     );
     const result = await data.populate(
