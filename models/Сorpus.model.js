@@ -6,7 +6,7 @@ const corpusSchema = mongoose.Schema({
     price: Number,
     width: Number,
     height: Number,
-    boardSize: Number,
+    boardSize: String,
 })
 
 const Corpus = mongoose.model("Corpus", corpusSchema)
