@@ -10,6 +10,7 @@ const mathSchema = mongoose.Schema({
     ref: "ram",
   },
   currentRam: Number,
+  maxRam: Number,
   videocard: {
     type: mongoose.SchemaTypes.ObjectId,
     ref: "videocard",
@@ -28,7 +29,7 @@ const mathSchema = mongoose.Schema({
     type: mongoose.SchemaTypes.ObjectId,
     ref: "processor",
   },
-  price: String,
+  price: Number,
 });
 
 const Math = mongoose.model("Math", mathSchema);
