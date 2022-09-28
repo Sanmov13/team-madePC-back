@@ -4,7 +4,7 @@ const coolerSchema = mongoose.Schema({
     power: Number,
     image: String,
     price: Number,
-    title: String
+    name: String
 })
 
 const Cooler = mongoose.model("Cooler", coolerSchema)

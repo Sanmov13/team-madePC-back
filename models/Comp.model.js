@@ -6,23 +6,23 @@ const compSchema = mongoose.Schema({
     image: String,
     ram: {
         type: mongoose.SchemaTypes.ObjectId,
-        ref: "ram",
+        ref: "Ram",
     },
     videocard: {
         type: mongoose.SchemaTypes.ObjectId,
-        ref: "videocard",
+        ref: "Videocard",
     },
     hardCard: {
         type: mongoose.SchemaTypes.ObjectId,
-        ref: "hardcard",
+        ref: "Hardcard",
     },
     ssd: {
         type: mongoose.SchemaTypes.ObjectId,
-        ref: "ssd",
+        ref: "Ssd",
     },
     processor: {
         type: mongoose.SchemaTypes.ObjectId,
-        ref: "processor",
+        ref: "Processor",
     },
     corpus: {
         type: mongoose.SchemaTypes.ObjectId,
@@ -32,6 +32,10 @@ const compSchema = mongoose.Schema({
         type: mongoose.SchemaTypes.ObjectId,
         ref: "Cooler",
     },
+    math: {
+        type: mongoose.SchemaTypes.ObjectId,
+        ref: "Math"
+    }
 });
 
 const Comp = mongoose.model("Comp", compSchema);
