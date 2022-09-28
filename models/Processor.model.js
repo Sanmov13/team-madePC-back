@@ -6,7 +6,7 @@ const processorSchema = mongoose.Schema({
     frequency: Number,
     image: String,
     price: Number,
-    title: String
+    name: String
 })
 
 const Processor = mongoose.model("Processor", processorSchema)
