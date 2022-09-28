@@ -3,6 +3,8 @@ const mongoose = require("mongoose");
 const mathSchema = mongoose.Schema({
   name: String,
   type: String,
+  socket: String,
+  image: String,
   ram: {
     type: mongoose.SchemaTypes.ObjectId,
     ref: "ram",
@@ -25,10 +27,6 @@ const mathSchema = mongoose.Schema({
   processor: {
     type: mongoose.SchemaTypes.ObjectId,
     ref: "processor",
-  },
-  frame: {
-    type: mongoose.SchemaTypes.ObjectId,
-    ref: "frame",
   },
   price: String,
 });
