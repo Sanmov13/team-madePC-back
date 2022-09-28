@@ -3,7 +3,7 @@ const Math = require("../models/Math.model");
 module.exports.math = {
   getMath: async (req, res) => {
     const data = await Math.find().populate(
-      "ram videocard hardcard ssd processor frame"
+      "ram videocard hardCard ssd processor"
     );
     res.json(data);
   },
@@ -25,7 +25,7 @@ module.exports.math = {
       } = req.body)
     );
     const result = await data.populate(
-      "ram videocard hardcard ssd processor frame"
+      "ram videocard hardCard ssd processor"
     );
     res.json(result);
   },
@@ -48,7 +48,7 @@ module.exports.math = {
       } = req.body)
     );
     const result = await data.populate(
-      "ram videocard hardcard ssd processor frame"
+      "ram videocard hardCard ssd processor"
     );
     res.json(result);
   },
