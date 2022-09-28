@@ -14,7 +14,9 @@ app.use('/public', express.static(path.join(__dirname, 'public')));
 
 app.use(require('./routes/user.route'));
 app.use(require('./routes/processor.route'));
-
+app.use(require("./routes/videoCard.route"))
+app.use(require("./routes/powerUnit.route"))
+app.use(require("./routes/ssd.route"))
 const start = async () => {
     try {
         await mongoose.connect(process.env.MONGO_SERVER);
