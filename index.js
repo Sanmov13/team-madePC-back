@@ -20,7 +20,8 @@ app.use(require("./routes/powerUnit.route"))
 app.use(require("./routes/ssd.route"))
 app.use(require('./routes/cooler.route'));
 app.use(require('./routes/comp.route'));
-app.use(require('./routes/RAM.route'))
+app.use(require('./routes/RAM.route'));
+app.use(require("./routes/HDD.route"))
 app.use(require('./routes/corpus.route'));
 
 const start = async () => {
