@@ -13,7 +13,7 @@ module.exports.compController = ({
 
     getComp: async (req, res) => {
         try {
-            const data = await Comp.find().populate('ram videocard hardCard ssd processor corpus cooler powerunits')
+            const data = await Comp.find().populate('ram ssd processor corpus cooler powerunits videocard hardCard')
             res.json(data)
         } catch (e) {
             return res.status(404).json(e.toString());
