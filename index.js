@@ -23,6 +23,8 @@ app.use(require('./routes/comp.route'));
 app.use(require('./routes/RAM.route'));
 app.use(require("./routes/HDD.route"))
 app.use(require('./routes/corpus.route'));
+app.use(require('./routes/question.route'));
+app.use(require('./routes/comment.route'));
 
 const start = async () => {
     try {
