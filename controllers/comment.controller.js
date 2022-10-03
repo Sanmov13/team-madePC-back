@@ -2,7 +2,7 @@ const Comment = require("../models/Comment.model");
 
 module.exports.commentController = {
   addComment: async (req, res) => {
-    const data = await Comment.create(({ text, user } = req.body));
+    const data = await Comment.create(({  text, } = req.body));
     res.json(data);
   },
 
