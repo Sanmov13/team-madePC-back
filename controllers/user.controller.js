@@ -1,4 +1,4 @@
-const User = require('../models/User.model')
+const User = require('../models/User.model');
 
 module.exports.userController = ({
     registerUser: async (req, res) => {
@@ -40,5 +40,26 @@ module.exports.userController = ({
         return res.json({ token, login1 })
     },
 
+    addInBasket: async (req, res) => {
+        try {
+            const user = await User.findByIdAndUpdate(req.params.id, {
+                $addToSet: { basket: req.body.basket },
+            }).populate("basket");
+            res.json(user);
+        } catch (e) {
+            return res.status(404).json(e.toString());
+        }
+    },
+
+    removeFromBasket: async (req, res) => {
+        try {
+            const user = await User.findByIdAndUpdate(req.params.id, {
+                $pull: { basket: req.body.basket },
+            }).populate("basket");
+            res.json(user);
+        } catch (e) {
+            return res.status(404).json(e.toString());
+        }
+    },
 
 })
