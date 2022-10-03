@@ -1,4 +1,6 @@
-const User = require('../models/User.model');
+const User = require('../models/User.model')
+const bcrypt = require("bcrypt")
+const jwt = require("jsonwebtoken");
 
 module.exports.userController = ({
     registerUser: async (req, res) => {
