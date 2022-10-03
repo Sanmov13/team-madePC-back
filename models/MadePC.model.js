@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const madePCSchema = mongoose.Schema({
-  price: String,
+  price: Number,
   image: String,
   user: {
     type: mongoose.SchemaTypes.ObjectId,
