@@ -3,8 +3,8 @@ const Comp = require('../models/Comp.model');
 module.exports.compController = ({
     addComp: async (req, res) => {
         try {
-            const data = await Comp.create({ name, price, image, ram, videocard, hardcard, ssd, processor, corpus, cooler, math } = req.body);
-            const result = await data.populate('ram videocard hardcard ssd processor corpus cooler')
+            const data = await Comp.create({ name, price, image, ram, videocard, hardcard, ssd, processor, corpus, cooler, math, powerunits } = req.body);
+            const result = await data.populate('ram ssd processor corpus cooler powerunits videocard hardCard')
             res.json(result)
         } catch (e) {
             return res.status(404).json(e.toString());
@@ -13,7 +13,7 @@ module.exports.compController = ({
 
     getComp: async (req, res) => {
         try {
-            const data = await Comp.find().populate('ram videocard hardcard ssd processor corpus cooler')
+            const data = await Comp.find().populate('ram ssd processor corpus cooler powerunits videocard hardCard')
             res.json(data)
         } catch (e) {
             return res.status(404).json(e.toString());
