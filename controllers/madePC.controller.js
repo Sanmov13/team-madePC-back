@@ -5,6 +5,7 @@ module.exports.madePC = {
     try {
       const data = await MadePC.create(
         ({
+          name,
           price,
           image,
           ram,
@@ -21,7 +22,21 @@ module.exports.madePC = {
       const result = await data.populate(
         "ram ssd processor corpus cooler powerunits videocard hardcard"
       );
-      res.json(result);
+
+      const sum = await Number(
+        result.ram.price +
+          result.videocard.price +
+          result.ssd.price +
+          result.processor.price +
+          result.corpus.price +
+          result.cooler.price
+      );
+
+      const all = await MadePC.updateOne(result, {
+        $set: { price: sum },
+      });
+
+      return await res.json(result);
     } catch (e) {
       return res.status(404).json(e.toString());
     }

@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 
 const madePCSchema = mongoose.Schema({
+  name: String,
   price: Number,
   image: String,
   user: {
@@ -15,7 +16,7 @@ const madePCSchema = mongoose.Schema({
     type: mongoose.SchemaTypes.ObjectId,
     ref: "VideoCard",
   },
-  hardCard: {
+  hardcard: {
     type: mongoose.SchemaTypes.ObjectId,
     ref: "HDD",
   },
