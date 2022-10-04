@@ -27,6 +27,7 @@ app.use(require('./routes/game.route'));
 app.use(require("./routes/question.route"));
 app.use(require("./routes/comment.route"));
 app.use(require("./routes/madePC.route"));
+app.use(require('./routes/request.route'));
 
 const start = async () => {
   try {
