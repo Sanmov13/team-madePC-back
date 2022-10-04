@@ -3,7 +3,10 @@ const mongoose = require('mongoose');
 const coolerSchema = mongoose.Schema({
     power: String,
     image: String,
-    price: Number,
+    price: {
+        type: Number,
+        default: 0
+    },
     name: String
 })
 
