@@ -55,7 +55,25 @@ module.exports.compController = {
 
   updateComp: async (req, res) => {
     try {
-      const data = await Comp.findByIdAndUpdate(req.params.id, { ...req.body });
+      const data = await Comp.findById(req.params.id);
+      const result = await data.populate(
+        "ram ssd processor corpus cooler powerunits videocard hardCard"
+      );
+
+      const sum = await Number(
+        result.ram.price +
+          result.videocard.price +
+          result.ssd.price +
+          result.processor.price +
+          result.corpus.price +
+          result.cooler.price
+      );
+
+      const all = await Comp.updateOne(result, {
+        $set: { price: sum },
+      });
+
+      return await res.json(result);
     } catch (e) {
       return res.status(404).json(e.toString());
     }
