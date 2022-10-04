@@ -4,7 +4,11 @@ const requestSchema = mongoose.Schema({
     name: String,
     number: Number,
     email: String,
-    comment: String
+    comment: String,
+    comp: {
+        type: mongoose.SchemaTypes.ObjectId,
+        ref: 'Comp'
+    }
 })
 
 const Request = mongoose.model("Request", requestSchema)
