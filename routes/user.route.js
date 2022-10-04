@@ -6,5 +6,6 @@ router.post('/user', userController.registerUser);
 router.post('/login', userController.login);
 router.patch('/addToBasket/:id', userController.addInBasket);
 router.patch('/deleteFromBasket/:id', userController.removeFromBasket);
+router.get('/users', userController.getUser)
 
 module.exports = router;
