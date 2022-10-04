@@ -16,7 +16,7 @@ module.exports = async (req, res, next) => {
 
     try {
         req.user = jwt.verify(token, `${process.env.SECRET_JWT_KEY}`)
-
+        
         next();
 
     } catch (e) {
