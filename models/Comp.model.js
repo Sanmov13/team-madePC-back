@@ -40,6 +40,10 @@ const compSchema = mongoose.Schema({
     type: mongoose.SchemaTypes.ObjectId,
     ref: "PowerUnit",
   },
+  count: {
+    type: Number,
+    default: 1
+  }
 });
 
 const Comp = mongoose.model("Comp", compSchema);
