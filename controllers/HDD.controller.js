@@ -6,6 +6,7 @@ module.exports.HDDController = ({
     addHDD: async (req, res) => {
         const data = await HDD.create({
             title,
+            name,
             storageСapacity,
             price,
             img,

@@ -3,6 +3,7 @@ const mongoose = require("mongoose")
 
 const RAMSchema = mongoose.Schema({
     title: String,
+    name: String,
     memoryCapacity: String,
     memoryType: String,
     clockFrequency: String,
