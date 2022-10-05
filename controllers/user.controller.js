@@ -64,4 +64,9 @@ module.exports.userController = ({
         }
     },
 
+    getUser: async (req, res) => {
+        const data = await User.find().populate('basket')
+        res.json(data)
+    }
+
 })

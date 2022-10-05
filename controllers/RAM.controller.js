@@ -4,6 +4,7 @@ module.exports.RAMController = ({
     addRAM: async (req, res) => {
         const data = await RAM.create({
             title,
+            name,
             memoryCapacity,
             memoryType,
             clockFrequency,

@@ -3,6 +3,7 @@ const mongoose = require("mongoose")
 
 const gamesSchema = mongoose.Schema({
     name: String,
+    
     image: String,
     comp: [{
             type: mongoose.SchemaTypes.ObjectId,
