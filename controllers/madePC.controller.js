@@ -55,9 +55,25 @@ module.exports.madePC = {
 
   updateMadePC: async (req, res) => {
     try {
-      const data = await MadePC.findByIdAndUpdate(req.params.id, {
-        ...req.body,
+      const data = await MadePC.findById(req.params.id);
+      const result = await data.populate(
+        "ram ssd processor corpus cooler powerunits videocard hardcard"
+      );
+
+      const sum = await Number(
+        result.ram.price +
+          result.videocard.price +
+          result.ssd.price +
+          result.processor.price +
+          result.corpus.price +
+          result.cooler.price
+      );
+
+      const all = await MadePC.updateOne(result, {
+        $set: { price: sum },
       });
+
+      return await res.json(result);
     } catch (e) {
       return res.status(404).json(e.toString());
     }

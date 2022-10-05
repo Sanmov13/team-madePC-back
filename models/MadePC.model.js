@@ -2,7 +2,10 @@ const mongoose = require("mongoose");
 
 const madePCSchema = mongoose.Schema({
   name: String,
-  price: Number,
+  price: {
+    type: Number,
+    default: 0
+  },
   image: String,
   user: {
     type: mongoose.SchemaTypes.ObjectId,
