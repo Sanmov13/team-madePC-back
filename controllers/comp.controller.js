@@ -93,8 +93,7 @@ module.exports.compController = {
         try {
             const comp = await Comp.findById(req.params.id)
             const data = await Comp.findByIdAndUpdate(req.params.id, {
-                count: comp.count + 1,
-                price: comp.price + comp.price
+                count: comp.count + 1
             })
             res.json(data)
         } catch (e) {
@@ -106,7 +105,7 @@ module.exports.compController = {
         try {
             const comp = await Comp.findById(req.params.id)
             const data = await Comp.findByIdAndUpdate(req.params.id, {
-                count: comp.count - 1,
+                count: comp.count - 1
             })
             res.json(data)
         } catch (e) {
