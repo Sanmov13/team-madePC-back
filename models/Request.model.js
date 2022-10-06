@@ -5,10 +5,10 @@ const requestSchema = mongoose.Schema({
     number: Number,
     email: String,
     comment: String,
-    comp: {
+    comp: [{
         type: mongoose.SchemaTypes.ObjectId,
         ref: 'Comp'
-    }
+    }]
 })
 
 const Request = mongoose.model("Request", requestSchema)
