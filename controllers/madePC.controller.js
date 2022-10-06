@@ -6,6 +6,7 @@ module.exports.madePC = {
       const data = await MadePC.create(
         ({
           name,
+          user,
           price,
           image,
           ram,
@@ -20,7 +21,7 @@ module.exports.madePC = {
         } = req.body)
       );
       const result = await data.populate(
-        "ram ssd processor corpus cooler powerunits videocard hardcard"
+        "ram ssd processor corpus cooler powerunits videocard hardcard user"
       );
 
       const sum = await Number(
@@ -45,8 +46,20 @@ module.exports.madePC = {
   getMadePC: async (req, res) => {
     try {
       const data = await MadePC.find().populate(
-        "ram ssd processor corpus cooler powerunits videocard hardcard"
+        "ram ssd processor corpus cooler powerunits videocard hardcard user"
       );
+      const sum = await Number(
+        result.ram.price +
+          result.videocard.price +
+          result.ssd.price +
+          result.processor.price +
+          result.corpus.price +
+          result.cooler.price
+      );
+
+      const all = await MadePC.updateOne(result, {
+        $set: { price: sum },
+      });
       res.json(data);
     } catch (e) {
       return res.status(404).json(e.toString());
@@ -57,7 +70,7 @@ module.exports.madePC = {
     try {
       const {
         name,
-        price,
+        user,
         image,
         ram,
         videocard,
@@ -72,6 +85,7 @@ module.exports.madePC = {
 
       const data = await MadePC.findByIdAndUpdate(req.params.id, {
         name,
+        user,
         image,
         ram,
         videocard,
@@ -84,21 +98,8 @@ module.exports.madePC = {
         powerunits,
       });
       const result = await data.populate(
-        "ram ssd processor corpus cooler powerunits videocard hardcard"
+        "ram ssd processor corpus cooler powerunits videocard hardcard user"
       );
-
-      const sum = await Number(
-        result.ram.price +
-          result.videocard.price +
-          result.ssd.price +
-          result.processor.price +
-          result.corpus.price +
-          result.cooler.price
-      );
-
-      const all = await MadePC.updateOne(result, {
-        $set: { price: sum },
-      });
 
       res.json(result);
     } catch (e) {
