@@ -49,5 +49,5 @@ const madePCSchema = mongoose.Schema({
   },
 });
 
-const MadePC = mongoose.model("madePC", madePCSchema);
+const MadePC = mongoose.model("MadePC", madePCSchema);
 module.exports = MadePC;
