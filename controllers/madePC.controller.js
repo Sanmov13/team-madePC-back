@@ -36,7 +36,7 @@ module.exports.madePC = {
         $set: { price: sum },
       });
 
-      return await res.json(result);
+      res.json(result);
     } catch (e) {
       return res.status(404).json(e.toString());
     }
