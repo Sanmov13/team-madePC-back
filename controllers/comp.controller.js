@@ -17,7 +17,8 @@ module.exports.compController = {
                     cooler,
                     math,
                     powerunits,
-                    count
+                    count,
+                    total
                 } = req.body)
             );
             const result = await data.populate(
@@ -92,8 +93,11 @@ module.exports.compController = {
     countPlus: async (req, res) => {
         try {
             const comp = await Comp.findById(req.params.id)
+            let sum = 0;
+            let res1 = comp.price;
             const data = await Comp.findByIdAndUpdate(req.params.id, {
-                count: comp.count + 1
+                count: comp.count + 1,
+                price: comp.price + comp.total
             })
             res.json(data)
         } catch (e) {
@@ -105,7 +109,8 @@ module.exports.compController = {
         try {
             const comp = await Comp.findById(req.params.id)
             const data = await Comp.findByIdAndUpdate(req.params.id, {
-                count: comp.count - 1
+                count: comp.count - 1,
+                price: comp.price - comp.total
             })
             res.json(data)
         } catch (e) {

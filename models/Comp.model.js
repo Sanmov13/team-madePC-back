@@ -43,7 +43,8 @@ const compSchema = mongoose.Schema({
   count: {
     type: Number,
     default: 1
-  }
+  },
+  total: Number
 });
 
 const Comp = mongoose.model("Comp", compSchema);
