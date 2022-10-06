@@ -68,7 +68,7 @@ module.exports.compController = {
                 result.ssd.price +
                 result.processor.price +
                 result.corpus.price +
-                result.cooler.price
+                result.cooler.price 
             );
 
             const all = await Comp.updateOne(result, {
