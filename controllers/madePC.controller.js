@@ -95,7 +95,52 @@ module.exports.madePC = {
       return res.status(404).json(e.toString());
     }
   },
+  mPCupdate: async (req, res) => {
+    const data = await MadePC.find();
+    var result;
+    for (let i = 0; i < data.length; i++) {
+      result = data[i];
+    }
 
+    try {
+      const {
+        name,
+        price,
+        image,
+        ram,
+        videocard,
+        hardcard,
+        ssd,
+        processor,
+        corpus,
+        cooler,
+        math,
+        powerunits,
+      } = req.body;
+
+      const fndOne = await MadePC.findOne(result).populate(
+        "ram ssd processor corpus cooler powerunits videocard hardcard math"
+      );;
+      const upd = await MadePC.updateOne(fndOne, {
+        name,
+        price,
+        image,
+        ram,
+        videocard,
+        hardcard,
+        ssd,
+        processor,
+        corpus,
+        cooler,
+        math,
+        powerunits,
+      });
+     
+      res.json(fndOne)
+    } catch (e) {
+      return res.status(404).json(e.toString());
+    }
+  },
   deleteMadePC: async (req, res) => {
     try {
       const data = await MadePC.findByIdAndDelete(req.params.id);
