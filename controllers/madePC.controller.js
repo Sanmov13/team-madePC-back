@@ -39,6 +39,15 @@ module.exports.madePC = {
       return res.status(404).json(e.toString());
     }
   },
+  getOneMPC: async (req,res)=>{
+    const data = await MadePC.find();
+    let result;
+    for (let i = 0; i < data.length; i++) {
+      result = data[i];
+    }
+
+    res.json(result)
+  },
 
   updateMadePC: async (req, res) => {
     try {
