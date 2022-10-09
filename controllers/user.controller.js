@@ -46,8 +46,11 @@ module.exports.userController = ({
         try {
             const user = await User.findByIdAndUpdate(req.params.id, {
                 $addToSet: { basket: req.body.basket },
-            }).populate("basket");
-            res.json(user);
+                $addToSet: {basketMade: req.body.basketMade}
+            }).populate("basket basketMade");
+
+            const data = await user
+            res.json(data);
         } catch (e) {
             return res.status(404).json(e.toString());
         }
@@ -57,7 +60,8 @@ module.exports.userController = ({
         try {
             const user = await User.findByIdAndUpdate(req.params.id, {
                 $pull: { basket: req.body.basket },
-            }).populate("basket");
+                $pull: {basketMade: req.body.basketMade}
+            }).populate("basket basketMade");
             res.json(user);
         } catch (e) {
             return res.status(404).json(e.toString());
