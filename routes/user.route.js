@@ -5,6 +5,7 @@ const { userController } = require('../controllers/user.controller')
 router.post('/user', userController.registerUser);
 router.post('/login', userController.login);
 router.patch('/addToBasket/:id', userController.addInBasket);
+router.patch('/addToMadeBasket/:id', userController.addInMadeBasket)
 router.patch('/deleteFromBasket/:id', userController.removeFromBasket);
 router.get('/users', userController.getUser)
 

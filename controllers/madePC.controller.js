@@ -39,47 +39,20 @@ module.exports.madePC = {
       return res.status(404).json(e.toString());
     }
   },
-  getOneMPC: async (req,res)=>{
+  getOneMPC: async (req, res) => {
     const data = await MadePC.find();
     let result;
     for (let i = 0; i < data.length; i++) {
       result = data[i];
     }
 
-    res.json(result)
+    res.json(result);
   },
 
   updateMadePC: async (req, res) => {
     try {
-      const {
-        name,
-        price,
-        image,
-        ram,
-        videocard,
-        hardcard,
-        ssd,
-        processor,
-        corpus,
-        cooler,
-        math,
-        powerunits,
-      } = req.body;
+      const data = await MadePC.findById(req.params.id);
 
-      const data = await MadePC.findByIdAndUpdate(req.params.id, {
-        name,
-        price,
-        image,
-        ram,
-        videocard,
-        hardcard,
-        ssd,
-        processor,
-        corpus,
-        cooler,
-        math,
-        powerunits,
-      });
       const result = await data.populate(
         "ram ssd processor corpus cooler powerunits videocard hardcard math"
       );
@@ -92,14 +65,15 @@ module.exports.madePC = {
           result.corpus.price +
           result.cooler.price +
           result.math.price +
-          result.powerunits.price
+          result.powerunits.price +
+          result.hardcard.price
       );
 
       const all = await MadePC.updateOne(result, {
         $set: { price: sum },
       });
 
-      res.json(result);
+      return await res.json(result);
     } catch (e) {
       return res.status(404).json(e.toString());
     }
@@ -129,7 +103,7 @@ module.exports.madePC = {
 
       const fndOne = await MadePC.findOne(result).populate(
         "ram ssd processor corpus cooler powerunits videocard hardcard math"
-      );;
+      );
       const upd = await MadePC.updateOne(fndOne, {
         name,
         price,
@@ -144,8 +118,24 @@ module.exports.madePC = {
         math,
         powerunits,
       });
-     
-      res.json(fndOne)
+
+      const sum = await Number(
+        fndOne.ram.price +
+          fndOne.videocard.price +
+          fndOne.ssd.price +
+          fndOne.processor.price +
+          fndOne.corpus.price +
+          fndOne.cooler.price +
+          fndOne.math.price +
+          fndOne.powerunits.price +
+          fndOne.hardcard.price
+      );
+
+      const all = await MadePC.updateOne(fndOne, {
+        $set: { price: sum },
+      });
+
+      res.json(all);
     } catch (e) {
       return res.status(404).json(e.toString());
     }
