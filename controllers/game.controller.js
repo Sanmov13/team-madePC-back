@@ -4,7 +4,7 @@ const Games = require("../models/Game.model")
 
 module.exports.gamesController = ({
     addGames: async (req, res) => {
-        const data = await  Games.create({ name, image, comp } = req.body);
+        const data = await  Games.create({ name, image, imageBackground, gamePCImg, comp } = req.body);
         const result = await data.populate('comp')
         res.json(result);
     },
