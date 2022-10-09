@@ -6,6 +6,10 @@ const userSchema = mongoose.Schema({
     basket: [{
         type: mongoose.SchemaTypes.ObjectId,
         ref: 'Comp'
+    }],
+    basketMade:[{
+        type: mongoose.SchemaTypes.ObjectId,
+        ref: 'MadePC'
     }]
 })
 
