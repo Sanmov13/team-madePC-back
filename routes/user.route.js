@@ -7,6 +7,7 @@ router.post('/login', userController.login);
 router.patch('/addToBasket/:id', userController.addInBasket);
 router.patch('/addToMadeBasket/:id', userController.addInMadeBasket)
 router.patch('/deleteFromBasket/:id', userController.removeFromBasket);
-router.get('/users', userController.getUser)
+router.patch('/deleteFromMadeBasket/:id', userController.removeFromMadebasket);
+router.get('/users', userController.getUser);
 
 module.exports = router;
