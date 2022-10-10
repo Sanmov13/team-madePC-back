@@ -69,9 +69,8 @@ module.exports.userController = {
   removeFromBasket: async (req, res) => {
     try {
       const user = await User.findByIdAndUpdate(req.params.id, {
-        $pull: { basket: req.body.basket },
-        $pull: { basketMade: req.body.basketMade },
-      }).populate("basket basketMade");
+        $pull: { basket: req.body.basket }
+      }).populate("basket");
       res.json(user);
     } catch (e) {
       return res.status(404).json(e.toString());
