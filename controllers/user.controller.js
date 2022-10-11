@@ -19,13 +19,13 @@ module.exports.userController = {
     const candidate = await User.findOne({ login });
 
     if (!candidate) {
-      return res.status(401).json("Неверный логин");
+      return res.status(401).json({error:"Неверный логин"});
     }
 
     const valid = await bcrypt.compare(password, candidate.password);
 
     if (!valid) {
-      return res.status(401).json("Неверный пароль");
+      return res.status(401).json({error:"Неверный пароль"});
     }
 
     const payload = {
@@ -78,7 +78,7 @@ module.exports.userController = {
   },
 
   getUser: async (req, res) => {
-    const data = await User.find().populate("basket");
+    const data = await User.find().populate("basket basketMade");
     res.json(data);
   },
 };
